@@ -50,12 +50,6 @@
     <a href="empty">Login</a>
     <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
     <?php
-if (isset($_POST['button'])){
-         $json_element = json_encode($item);
-         file_put_contents($json_path, $json_element); 
-    }
-    
-
 
 
     ?>
@@ -81,7 +75,7 @@ if (isset($_POST['button'])){
 <section class="products">
 <h2 id ="products">Our last products</h2>
 <?php
-
+$i=0;
 
 foreach($items as $item) {
     echo '<div class="products_shoes"  id='.$item["id"].'>
@@ -89,10 +83,15 @@ foreach($items as $item) {
 <h3>'.$item['product'].'</h3> 
 <p>'.$item['price'].'</p>
 <form method="post" action="" >
-<button name="button" class="add_to_cart">add to cart</button>
+<button name= '."button$i".' class="add_to_cart" type="submit">add to cart</button>
 </form>';
-}
 
+if (isset($_POST["button$i"])){
+        $json_element = json_encode($item);
+        file_put_contents($json_path, $json_element);
+}
+$i++;
+}
 ?>
 </section>
 
