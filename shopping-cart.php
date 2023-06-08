@@ -62,16 +62,48 @@ $cart = array(
     $product_2 = array(
         "name" => "NIKE Air", 
         "price" => "254€", 
-        "image" => "./assets/img/shoe_tow.png"
+        "image" => "./assets/img/shoe_two.png",
+        "description" => "Voici une basket"
+    ),
+    $product_3 = array(
+        "name" => "NIKE Air", 
+        "price" => "365€", 
+        "image" => "./assets/img/shoe_two.png",
+        "description" => "Voici une basket"
     )
 ); 
 // print_r($cart); 
 $cart_length = count($cart); 
 // echo $cart_length; 
-print_r($cart[1]); 
+// $product_info = $cart[2]; 
+// print_r($product_info["price"]); 
 
-// for ($i=0 ; $i < $cart_length ; $i ++){
-//     echo 
-// }; 
+foreach ($cart as $key => $value){
+    $product_info = $value; 
+    // Creation des "cards" pour chaque produits du panier
+}
+
+for ($i=0 ; $i < $cart_length ; $i ++){
+    echo '
+    <div>
+        <div>
+            <img src="'.$product_info['image'].'" al="Picture of the product selected">
+            <p>'.$product_info['name'].'</p>
+        </div>
+        <p>'.$product_info['description'].'</p>
+        <p>'.$product_info['price'].'</p>
+        <form methode="post">
+            <input type="submit" value="Delete" name="submit">
+        </form>
+    '; 
+}
+
+
+
+if(isset($_POST['Delete']) == "Delete"){
+    unset($cart); 
+    //unset(): unset variavbles
+    //unlink(): delete a file
+}
 
 ?>
