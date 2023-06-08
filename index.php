@@ -1,33 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-    <?php
-    $json_path = "./assets/json/cart.json";
+<?php
+ $json_path = "./assets/json/cart.json";
     $items = [
     [
         'id' => 1,
         'product' => 'Nike Air',
         'price' => 234,
-        'image_url' => './assets/img/shoe_one.png', 
+        'image_url' => './assets/img/shoe_one.png',
+        'number' => 1, 
     ],
     [
      'id' => 2,
         'product' => 'Nike Air',
         'price' => 234,
-        'image_url' => './assets/img/shoe_one.png',    
+        'image_url' => './assets/img/shoe_one.png',
+        'number' => 1,     
     ],
     [
         'id' => 3,
         'product' => 'Nike Air',
         'price' => 234,
-        'image_url' => './assets/img/shoe_one.png', 
+        'image_url' => './assets/img/shoe_one.png',
+        'number' => 1,  
     ],
     [
         'id' => 4,
         'product' => 'Nike Air',
         'price' => 234,
-        'image_url' => './assets/img/shoe_one.png', 
+        'image_url' => './assets/img/shoe_one.png',
+        'number' => 1, 
     ],
 ];
+
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $cartContent = json_decode(file_get_contents($json_path), true) ?? array();
+    foreach($items as $index => $item){
+        if (isset($_POST["button$index"])){
+            $cartContent[] = $item;
+        }
+    }
+    file_put_contents($json_path, $cartContent);
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <?php
+   
 ?>
 <head>
     <meta charset="UTF-8">
@@ -76,20 +97,14 @@
 <h2 id ="products">Our last products</h2>
 <?php
 $i=0;
-
 foreach($items as $item) {
     echo '<div class="products_shoes"  id='.$item["id"].'>
 <img src='.$item['image_url'].'> 
 <h3>'.$item['product'].'</h3> 
 <p>'.$item['price'].'</p>
 <form method="post" action="" >
-<button name= '."button$i".' class="add_to_cart" type="submit">add to cart</button>
+<button name= "button" class="add_to_cart" type="submit">add to cart</button>
 </form>';
-
-if (isset($_POST["button$i"])){
-        $json_element = json_encode($item);
-        file_put_contents($json_path, $json_element);
-}
 $i++;
 }
 ?>
