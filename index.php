@@ -1,54 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- <link rel="stylesheet" href="./assets/sass/style.css"> -->
-    <title>AZ_Store</title>
-</head>
-
-
-<!-- nav -->
-<header>
-    <nav>
-    <h1>AZ[store]</h1>
-    <a href="empty">Home</a>
-    <a href="empty">About</a>
-    <a href="empty">Products</a>
-    <a href="empty">Contact</a>
-    <a href="empty">Login</a>
-    <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
     <?php
-if( isset($_POST['button'])){
-        echo "items";
-    }
-    
-    ?>
-    </nav>
-</header>
-<body>
-
-
-
-<!-- store section -->
-<section class="store">
-<div>
-    <h1 class="slogan_1">Shoe the right one.</h1>
-    <button id="Move_to_store">See our store</button>
-</div>
-<div>
-<img  id="big_shoe_1"src="./assets/img/shoe_one.png" alt="shoe_one">
-<p id="nike">NIKE</p>
-</div>
-</section>
-
-<!-- products section -->
-<section class="products">
-<h2 id ="products">Our last products</h2>
-<?php
-$items = [
+    $json_path = "./assets/json/cart.json";
+    $items = [
     [
         'id' => 1,
         'product' => 'Nike Air',
@@ -74,6 +28,60 @@ $items = [
         'image_url' => './assets/img/shoe_one.png', 
     ],
 ];
+?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/sass/style.css"> -->
+    <title>AZ_Store</title>
+</head>
+
+
+<!-- nav -->
+<header>
+    <nav>
+    <h1>AZ[store]</h1>
+    <a href="empty">Home</a>
+    <a href="empty">About</a>
+    <a href="empty">Products</a>
+    <a href="empty">Contact</a>
+    <a href="empty">Login</a>
+    <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+    <?php
+if (isset($_POST['button'])){
+         $json_element = json_encode($item);
+         file_put_contents($json_path, $json_element); 
+    }
+    
+
+
+
+    ?>
+    </nav>
+</header>
+<body>
+
+
+
+<!-- store section -->
+<section class="store">
+<div>
+    <h1 class="slogan_1">Shoe the right one.</h1>
+    <button id="Move_to_store">See our store</button>
+</div>
+<div>
+<img  id="big_shoe_1"src="./assets/img/shoe_one.png" alt="shoe_one">
+<p id="nike">NIKE</p>
+</div>
+</section>
+
+<!-- products section -->
+<section class="products">
+<h2 id ="products">Our last products</h2>
+<?php
+
 
 foreach($items as $item) {
     echo '<div class="products_shoes"  id='.$item["id"].'>
@@ -86,37 +94,6 @@ foreach($items as $item) {
 }
 
 ?>
-
-<!-- <div class="products_shoes" id="div_shoe_1">
-    <img src="./assets/img/shoe_one.png" alt="shoe_one">
-    <h3>NIKE Air</h3>
-    <p>234€</p>
-<form method="post" action="" >
-    <button name="button" class="add_to_cart">add to cart</button>
-</form>
-</div>
-
-<div class="products_shoes" id="div_shoe_2">
-    <img src="./assets/img/shoe_one.png" alt="shoe_one">
-    <h3>NIKE Air</h3>
-    <p>234€</p>
-    <button class="add_to_cart">add to cart</button>
-</div>
-
-<div class="products_shoes" id="div_shoe_3">
-    <img src="./assets/img/shoe_one.png" alt="shoe_one">
-    <h3>NIKE Air</h3>
-    <p>234€</p>
-    <button class="add_to_cart">add to cart</button>
-</div>
-
-<div class="products_shoes" id="div_shoe_4">
-    <img src="./assets/img/shoe_one.png" alt="shoe_one">
-    <h3>NIKE Air</h3>
-    <p>234€</p>
-    <button class="add_to_cart">add to cart</button>
-</div> -->
-
 </section>
 
 
