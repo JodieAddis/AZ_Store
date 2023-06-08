@@ -20,6 +20,12 @@
     <a href="empty">Contact</a>
     <a href="empty">Login</a>
     <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+    <?php
+if( isset($_POST['button'])){
+        echo "items";
+    }
+    
+    ?>
     </nav>
 </header>
 <body>
@@ -38,36 +44,79 @@
 </div>
 </section>
 
-
-
-
 <!-- products section -->
 <section class="products">
 <h2 id ="products">Our last products</h2>
-<div class="products_shoes" id="div_shoe_1">
+<?php
+$items = [
+    [
+        'id' => 1,
+        'product' => 'Nike Air',
+        'price' => 234,
+        'image_url' => './assets/img/shoe_one.png', 
+    ],
+    [
+     'id' => 2,
+        'product' => 'Nike Air',
+        'price' => 234,
+        'image_url' => './assets/img/shoe_one.png',    
+    ],
+    [
+        'id' => 3,
+        'product' => 'Nike Air',
+        'price' => 234,
+        'image_url' => './assets/img/shoe_one.png', 
+    ],
+    [
+        'id' => 4,
+        'product' => 'Nike Air',
+        'price' => 234,
+        'image_url' => './assets/img/shoe_one.png', 
+    ],
+];
+
+foreach($items as $item) {
+    echo '<div class="products_shoes"  id='.$item["id"].'>
+<img src='.$item['image_url'].'> 
+<h3>'.$item['product'].'</h3> 
+<p>'.$item['price'].'</p>
+<form method="post" action="" >
+<button name="button" class="add_to_cart">add to cart</button>
+</form>';
+}
+
+?>
+
+<!-- <div class="products_shoes" id="div_shoe_1">
     <img src="./assets/img/shoe_one.png" alt="shoe_one">
     <h3>NIKE Air</h3>
     <p>234€</p>
-    <button class="add_to_cart">add to cart</button>
+<form method="post" action="" >
+    <button name="button" class="add_to_cart">add to cart</button>
+</form>
 </div>
+
 <div class="products_shoes" id="div_shoe_2">
     <img src="./assets/img/shoe_one.png" alt="shoe_one">
     <h3>NIKE Air</h3>
     <p>234€</p>
     <button class="add_to_cart">add to cart</button>
 </div>
+
 <div class="products_shoes" id="div_shoe_3">
     <img src="./assets/img/shoe_one.png" alt="shoe_one">
     <h3>NIKE Air</h3>
     <p>234€</p>
     <button class="add_to_cart">add to cart</button>
 </div>
+
 <div class="products_shoes" id="div_shoe_4">
     <img src="./assets/img/shoe_one.png" alt="shoe_one">
     <h3>NIKE Air</h3>
     <p>234€</p>
     <button class="add_to_cart">add to cart</button>
-</div>
+</div> -->
+
 </section>
 
 
