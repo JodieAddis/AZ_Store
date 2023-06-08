@@ -4,37 +4,44 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
 #big_shoe_1 {
   width: 400px;
   height: 400px;
 }
+
 img {
   width: 200px;
   height: 200px;
 }
+
 h1 {
   font-size: 30px;
 }
+
 #shopping_cart_logo {
   width: 20px;
   height: 20px;
 }
+
 .products_shoes {
   width: 30px;
   height: 30px;
 }
+
 .products {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  div {
-    padding: 100px;
-  }
 }
+.products div {
+  padding: 100px;
+}
+
 .store {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
+}/*# sourceMappingURL=style.css.map */
