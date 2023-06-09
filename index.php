@@ -6,36 +6,49 @@ $items = [
         'product' => 'Nike Air',
         'price' => 234,
         'image_url' => './assets/img/shoe_one.png',
+        'quantity' => 1,
     ],
     [
         'id' => 2,
         'product' => 'Nike Air',
         'price' => 234,
         'image_url' => './assets/img/shoe_one.png',
+        'quantity' => 1,
     ],
     [
         'id' => 3,
         'product' => 'Nike Air',
         'price' => 234,
         'image_url' => './assets/img/shoe_one.png',
+        'quantity' => 1,
     ],
     [
         'id' => 4,
         'product' => 'Nike Air',
         'price' => 234,
         'image_url' => './assets/img/shoe_one.png',
+        'quantity' => 1,
     ],
 ];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cart_data = json_decode(file_get_contents($json_path), true) ?? array(); 
     foreach ($items as $index => $item) {
         if (isset($_POST["button$index"])) {
-            $cart_data[] = $item; 
-            
+            $found = false;
+            foreach($cart_data as &$cart_item){
+                if ($cart_item['id'] == $item['id']){
+                    $cart_item['quantity']++;
+                    $found= true;
+                    break;
+                }
+            }
+            if (!$found){
+                $cart_data[]=$item;
+            }
+            }
         }
+    file_put_contents($json_path, json_encode($cart_data));   
     }
-    file_put_contents($json_path, json_encode($cart_data)); 
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
