@@ -51,7 +51,7 @@
 </html>
 
 <?php
-
+$jsonFile = "./assets/json/cart.json";
 $json = file_get_contents("./assets/json/cart.json"); 
 // echo $json; 
 $data = json_decode($json, true); 
@@ -59,29 +59,32 @@ $data = json_decode($json, true);
 // print_r($data[0]);//Sélectionne l'array dans l'objet
 
 
-$id = 0;
-foreach ($data as $array => $value){
-    $product = $data[$array]; 
+foreach ($data as $index => $item){
+    if(!$data){
+        return;
+    } else {
     echo '
-    <div id="product_'.$id.'">
+    <div id="product_'.$index.'">
         <div>
-            <img src="'.$product['image_url'].'" alt="Picture of the product selected">
-            <p>'.$product['product'].'</p>
+            <img src="'.$item['image_url'].'" alt="Picture of the product selected">
+            <p>'.$item['product'].'</p>
         </div>
-        <p>'.$product['quantity'].'</p>
-        <p>'.$product['price'].'</p>
-        <form methode="post">
-            <button type="submit" value="Remove" name="button"'.$id.'>Remove</button>
+        <p>'.$item['quantity'].'</p>
+        <p>'.$item['price'].'</p>
+        <form method="post">
+        <input type="hidden" value='.$index.' name="button">
+            <button type="submit" value="Remove">Remove</button>
         </form>
     </div>
     '; 
-    if(isset($_POST["button".$id])){
-        json_decode($data[$array]);
-        unset('product'.$id); 
-        json_encode($data); 
     }
-
-    $id ++;
 }
 
+if (isset($_POST['button'])){
+    $item_value = $_POST['button'];
+        if (isset($data[$item_value])){
+            unset($data[$item_value]);
+        }
+            file_put_contents($jsonFile, json_encode($data, JSON_PRETTY_PRINT));
+        }
 ?>

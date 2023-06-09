@@ -75,6 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="empty">Contact</a>
     <a href="empty">Login</a>
     <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+    <form action ="shopping-cart.php">
+        <button type="submit">Go to Cart</button>
+</form>
     <?php
 
 
