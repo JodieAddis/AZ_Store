@@ -33,6 +33,7 @@
                 <div class= "cart_resume_product_display">
                     <p>Items</p>
                 </div>
+                <p class="cart_resume_product_quantity">Quantity</p>
                 <p class="cart_resume_product_price">Price</p>
                 <p>Remove</p>
             </div>
@@ -50,75 +51,37 @@
 </html>
 
 <?php
-// $products = array(
-//     "name" => "NIKE Air", 
-//     "price" => "234€", 
-//     "image" => "./assets/img/shoe_one.png"
-// ); 
 
-// $cart = array(
-//     $product_1 = array (
-//         "name" => "NIKE Air", 
-//         "price" => "234€", 
-//         "image" => "./assets/img/shoe_one.png",
-//         "description" => "Voici une basket",
-//         "id" => 1, 
-//     ), 
-//     $product_2 = array(
-//         "name" => "NIKE Air", 
-//         "price" => "254€", 
-//         "image" => "./assets/img/shoe_two.png",
-//         "description" => "Voici une basket",
-//         "id" => 2,
-//     ),
-//     $product_3 = array(
-//         "name" => "NIKE Air", 
-//         "price" => "365€", 
-//         "image" => "./assets/img/shoe_two.png",
-//         "description" => "Voici une basket",
-//         "id" => 3,
-//     )
-// ); 
-
-
-$json = file_get_contents("./cart.json"); 
+$json = file_get_contents("./assets/json/cart.json"); 
 // echo $json; 
 $data = json_decode($json, true); 
-print_r($data);//Totalité de l'objet
-foreach($data as $array =>)
+// print_r($data);//Totalité de l'objet
+// print_r($data[0]);//Sélectionne l'array dans l'objet
 
 
+$id = 0;
+foreach ($data as $array => $value){
+    $product = $data[$array]; 
+    echo '
+    <div id="product_'.$id.'">
+        <div>
+            <img src="'.$product['image_url'].'" alt="Picture of the product selected">
+            <p>'.$product['product'].'</p>
+        </div>
+        <p>'.$product['quantity'].'</p>
+        <p>'.$product['price'].'</p>
+        <form methode="post">
+            <button type="submit" value="Remove" name="button"'.$id.'>Remove</button>
+        </form>
+    </div>
+    '; 
+    if(isset($_POST["button".$id])){
+        json_decode($data[$array]);
+        unset('product'.$id); 
+        json_encode($data); 
+    }
 
-// $id = 0; 
-// foreach ($data as $key => $value){
-    // print_r($dataProduct); 
-    // echo '
-    // <div>
-    //     <div>
-    //         <img src="'.$dataProduct['image_url'].'" alt="Picture of the product selected">
-    //         <p>'.$dataProduct['product'].'</p>
-    //     </div>
-    //     <p>'.$dataProduct['price'].'</p>
-    //     <form methode="post">
-    //         <button type="submit" value="Remove" name="button'.$id.'">Remove</button>
-    //     </form>
-    // </div>
-    // ';
-    // if(isset($_POST["button.$id"]) == $product_info['id']){
-    //     echo 'test'; 
-    //     unset($cart[1]); 
-    // }
-    // $id ++;
-// }
-
-// foreach($array as $key => $item) {
-//     if ($item['id'] === $value) {
-//         unset($array[$key]);
-//     }
-// }
-
-
-//function json_encode(); création d'un fichier json
-// fonction json_decode() : récupérer les infos dans le fichier
+    $id ++;
+}
 
 ?>
