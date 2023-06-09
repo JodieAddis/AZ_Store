@@ -30,6 +30,7 @@ $items = [
         'quantity' => 1,
     ],
 ];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cart_data = json_decode(file_get_contents($json_path), true) ?? array(); 
     foreach ($items as $index => $item) {
