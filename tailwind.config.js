@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./AZ_Store/*.php"],
+  content: ["./*.php"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'bg-blue-gray': '#111827', 
+      }
+    },
   },
   plugins: [],
 }
