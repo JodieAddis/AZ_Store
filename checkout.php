@@ -7,30 +7,6 @@
     <title>Checkout</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            /* display: flex;
-            flex-direction: row; */
-            /* justify-content: space-around; */
-            /* background-color: black; */
-            /* color: white; */
-            /* padding: 10px; */
-        }
-        form{
-            /* display: flex;
-            flex-direction: column;
-            border: 2px solid rgba(255, 255, 255, .3);
-            border-radius: 5px;
-            width: 200px;
-            gap: 10px;
-            padding: 0px 10px 10px; */
-        }
-        aside {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            /* padding: 5px; */
-            gap: 10px;
-        }
         .color-blue{
             color: #2563eb;
         }
@@ -42,15 +18,9 @@
             border-radius: 5px;
             padding: 5px;
         }
-        button{
-            width: 50%;
-            height: 20px;
-            border-radius: 5px;
-            /* margin: 10px 0px; */
-        }
     </style>
 </head>
-<body class="flex flex-row justify-around bg-black text-white p-2.5">
+<body class="flex flex-row justify-around bg-black text-white p-2.5 gap-10">
     <?php 
     if (isset($_POST['firstname'])) {
         $firstname = $_POST['firstname'];
@@ -118,25 +88,25 @@
 
     ?>
         
-    
-    <form action="" method="post" class="flex flex-col px-2.5 pt-0 pb-2.5 gap-2.5 w-52 border-2 border-solid border-white/50">
-    <div><h2><span class="color-blue">Your</span> infos</h2></div>
+    <form action="" method="post" class="flex flex-col px-2.5 pt-0 pb-2.5 gap-2 w-1/3 border-2 border-solid border-white/50 rounded-md bg-cover"
+  style="background-image: url('./assets/img/shoe_one.png'); height: auto">
+    <div><h2 class="font-semibold text-2xl"><span class="text-blue-600">Your</span> infos</h2></div>
         <label for="firstname">Fisrtname</label>
-        <input type="text" name="firstname" id="firstname_input">
+        <input class="rounded-md" type="text" name="firstname" id="firstname_input">
         <span>
             <?php  if (empty($firstname)){
             echo "There is no firstname";
             } ?>
         </span>
         <label for="lastname">Lastname</label>
-        <input type="text" name="lastname" id="lastname_input">
+        <input class="rounded-md" type="text" name="lastname" id="lastname_input">
         <span>
             <?php     if (empty($lastname)){
             echo "There is no lastname";
             } ?>
         </span>    
         <label for="">Email</label>
-        <input type="email" name="email" id="email_input">
+        <input class="rounded-md" type="email" name="email" id="email_input">
         <span>
             <?php if (filter_var($email, FILTER_VALIDATE_EMAIL) === false){
             echo "This is not a valid email adress";
@@ -144,79 +114,84 @@
         </span>
         <div><p></p></div>
         <label for="street">Street</label>
-        <input type="text" name="street" id="street_input">
+        <input class="rounded-md" type="text" name="street" id="street_input">
         <span>
             <?php     if (empty($street)){
              echo "There is no street";
              } ?>
         </span>
         <label for="number">Number</label>
-        <input type="number" name="number" id="number_input">
+        <input class="rounded-md" type="number" name="number" id="number_input">
         <span>
             <?php     if (empty($number)){
             echo "There is no number";
               } ?>
         </span>
         <label for="city">City</label>
-        <input type="text" name="city" id="city_input">
+        <input class="rounded-md" type="text" name="city" id="city_input">
         <span>
             <?php     if (empty($city)){
             echo "There is no city";
             } ?>
         </span>
         <label for="zip_code">Zip code</label>
-        <input type="number" name="zip_code" id="zipcode_input">
+        <input class="rounded-md" type="number" name="zip_code" id="zipcode_input">
         <span>
             <?php     if (empty($zip_code)){
             echo "There is no zip code";
             } ?>
         </span>
         <label for="country">Country</label>
-        <input type="text" name="country" id="country_input">
+        <input class="rounded-md" type="text" name="country" id="country_input">
         <span>
             <?php     if (empty($country)){
             echo "There is no country";
             } ?>
         </span>
-        <button type="submit" name="submit">Submit information</button>
+        <button class="rounded-md bg-blue-600 align-middle w-1/2 text-lg" type="submit" name="submit">Go For It !</button>
     </form>
 
     <!-- Ceci est un test, tu t'appelles <?php echo $firstname . " " . gettype($firstname) . " ". $lastname . " ton mail est " . $email . " ".$street. " " . $number . " " . $city. " " . $zip_code . " " . $country?> -->
 
-    <aside>
-        <h2><span class="color-blue">Your</span> store</h2>
+    <aside class="flex flex-col w-2/3 content-center gap-2.5">
+        <h2 class="font-semibold text-2xl"><span class="text-blue-600">Your</span> store</h2>
         <?php
-            $shoppings = array(
-                'basket1' => array(
-                'id' => 1,
-                'picture' => 'picture1',
-                'title' => 'nikeAir1',
-                'price' => 234,
-                'quantity' => 1
-                ),
-                'basket2' => array(
-                'id' => 2,
-                'picture' => 'picture2',
-                'title' => 'nikeAir2',
-                'price' => 234,
-                'quantity' => 2,
-                ),
-            );
-            // print_r ($shoppings);
-            foreach($shoppings as $shopping){
-                echo 
-                "
+            // $shoppings = array(
+            //     'basket1' => array(
+            //     'id' => 1,
+            //     'picture' => 'picture1',
+            //     'title' => 'nikeAir1',
+            //     'price' => 234,
+            //     'quantity' => 1
+            //     ),
+            //     'basket2' => array(
+            //     'id' => 2,
+            //     'picture' => 'picture2',
+            //     'title' => 'nikeAir2',
+            //     'price' => 234,
+            //     'quantity' => 2,
+            //     ),
+            // );
+
+            $jsonFile = "./assets/json/cart.json";
+            $json = file_get_contents("./assets/json/cart.json");  
+            $data = json_decode($json, true); 
+
+            foreach($data as $index => $item){
+                if(!$data){
+                    return;
+                } else {
+                    echo "
                     <div class='baskets'>
-                    <img src='".$shopping['picture']."'>
-                    <span>".$shopping['title']."</span>
-                    <span>".$shopping['price']." €</span>
-                    <span>Quantity : ".$shopping['quantity']."</span>
+                    <img src='".$item['image_url']."'alt='Picture of the product selected'>
+                    <span>".$item['product']."</span>
+                    <span>".$item['price']." €</span>
+                    <span>Quantity : ".$item['quantity']."</span>
                     </div>
                 ";
+                }
             }
-        
         ?>
-        <!-- <button type="submit_cart">Validate <span class="color-blue">your</span> store</button> -->
     </aside>   
 </body>
 </html>
