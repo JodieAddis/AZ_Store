@@ -60,23 +60,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- <link rel="stylesheet" href="./assets/sass/style.css"> -->
+<!-- <link rel="stylesheet" href="./assets/sass/style.css"> -->
     <title>AZ_Store</title>
 </head>
 
 
-<header>
-    <nav>
-    <h1>AZ[store]</h1>
-    <a href="empty">Home</a>
-    <a href="empty">About</a>
-    <a href="empty">Products</a>
-    <a href="empty">Contact</a>
-    <a href="empty">Login</a>
-    <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart">
+<header class="border-b-2 border-b-solid border-b-white">
+    <nav class="bg-[#111827] flex flex-row justify-around items-center h-20 border-b-lightgrey">
+    <h1 class="text-white text-xl ">AZ[store]</h1>
+    <a href="empty" class="text-white">Home</a>
+    <a href="empty" class="text-white">About</a>
+    <a href="empty" class="text-white">Products</a>
+    <a href="empty" class="text-white">Contact</a>
+    <a href="empty" class="text-white">Login</a>
+    <img id="shopping_cart_logo" src="./assets/img/shopping-cart.svg" alt="shopping-cart" class="text-white">
     <form action ="shopping-cart.php">
-        <button type="submit">Go to Cart</button>
+        <button type="submit" class="bg-white border-black">Go to Cart</button>
 </form>
     <?php
 
@@ -84,34 +85,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ?>
     </nav>
 </header>
-<body>
+<body class="bg-gradient-to-b from-[#111827] to-black">
 
 
 
 <!-- store section -->
 <section class="store">
 <div>
-    <h1 class="slogan_1">Shoe the right one.</h1>
-    <button id="Move_to_store">See our store</button>
+    <h1 class="slogan_1 text-white text-5xl">Shoe the right <b class="text-[#2563eb]" >one</b>.</h1>
+    <button id="Move_to_store" class="text-white p-4 m-3 bg-gradient-to-l from-[#203e91] to-[#397def]">See our store</button>
 </div>
 <div>
-<img  id="big_shoe_1"src="./assets/img/shoe_one.png" alt="shoe_one">
-<p id="nike">NIKE</p>
+<img  id="big_shoe_1"src="./assets/img/shoe_one.png" alt="shoe_one" >
+<p id="nike" class="text-white">NIKE</p>
 </div>
 </section>
 
 <!-- products section -->
 <section class="products">
-<h2 id ="products">Our last products</h2>
+<h2 id ="products"class ="text-white text-5xl"><b class="text-[#2563eb]">Our</b> last products</h2>
 <?php
 $i=0;
             foreach ($items as $item) {
                 echo '<div class="products_shoes " id=' . $item["id"] . '>
-                    <img src=' . $item['image_url'] . '> 
-                    <h3>' . $item['product'] . '</h3> 
-                    <p>' . $item['price'] . '</p>
+                    <img class="text-white" src=' . $item['image_url'] . '> 
+                    <h3 class="text-white text-emphasized">' . $item['product'] . '</h3> 
+                    <p class="text-white">' . $item['price'] . '</p>
                     <form method="post" action="">
-                        <button name="button' . $i . '" class="add_to_cart" type="submit">add to cart</button>
+                        <button name="button' . $i . '" class="add_to_cart text-white bg-gradient-to-l from-[#203e91] to-[#397def] p-2 " type="submit">add to cart</button>
                     </form>
                 </div>';
                 $i++;
@@ -123,29 +124,29 @@ $i=0;
 
 <!-- citations section -->
 <section class="citation">
-    <img src="./assets/img/shoe_two.png" alt="shoe_two">
-    <h1 id="slogan_2">We provide you the best quality.</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci voluptas minima illo repudiandae aspernatur veniam praesentium eius harum distinctio earum iste repellat deserunt, quae, explicabo rerum sequi. Suscipit, odit blanditiis?</p>
+    <img src="./assets/img/shoe_two.png" alt="shoe_two" >
+    <h1 id="slogan_2" class="text-white text-5xl">We provide you the <b class="text-[#2563eb]">best</b> quality.</h1>
+    <p class="text-white text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci voluptas minima illo repudiandae aspernatur veniam praesentium eius harum distinctio earum iste repellat deserunt, quae, explicabo rerum sequi. Suscipit, odit blanditiis?</p>
 </section>
 
 
 
 <!-- commentaires section -->
-<section class="commentaires">
-<div id="emily">
-    <img src="./assets/img/image-emily.jpg" alt="emily">
-    <h3>Emily from XYZ</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
+<section class="commentaires mt-10">
+<div id="emily" class="flex flex-col justify-center items-center">
+    <img src="./assets/img/image-emily.jpg" class="rounded-full" alt="emily">
+    <h3 class="text-white">Emily from XYZ</h3>
+    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
 </div>
-<div id="Thomas">
-    <img src="./assets/img/image-thomas.jpg" alt="emily">
-    <h3>Thomas from corporate</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
+<div id="Thomas" class="flex flex-col justify-center items-center">
+    <img src="./assets/img/image-thomas.jpg" class="rounded-full" alt="emily">
+    <h3 class="text-white">Thomas from corporate</h3>
+    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
 </div>
-<div id="jennie">
-    <img src="./assets/img/image-jennie.jpg" alt="emily">
-    <h3>Jennie from Nike</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
+<div id="jennie" class="flex flex-col justify-center items-center">
+    <img src="./assets/img/image-jennie.jpg" class="rounded-full" alt="emily">
+    <h3 class="text-white">Jennie from Nike</h3>
+    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
 </div>
 </section>
 
