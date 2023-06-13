@@ -133,30 +133,32 @@ $i=0;
 
 
 <!-- citations section -->
-<section class="citation m-20">
+<section class="citation mt-20 mb-20 flex justify-center items-center w-full">
+    <!-- <div class="flex-col justify-center items-center"> -->
     <img src="./assets/img/shoe_two.png" alt="shoe_two" >
-    <h1 id="slogan_2" class="text-white text-5xl">We provide you the <b class="text-[#2563eb]">best</b> quality.</h1>
+    <h1 id="slogan_2" class="text-white text-7xl p-5 ">We provide you the <b class="text-[#2563eb]">best</b> quality.</h1>
     <p class="text-white text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci voluptas minima illo repudiandae aspernatur veniam praesentium eius harum distinctio earum iste repellat deserunt, quae, explicabo rerum sequi. Suscipit, odit blanditiis?</p>
+        <!-- </div> -->
 </section>
 
 
 
 <!-- commentaires section -->
-<section class="commentaires mt-10">
-<div id="emily" class="flex flex-col justify-center items-center">
+<section class="commentaires mt-10 flex-row justify-center items-center">
+<div id="emily" class="flex flex-col justify-center items-center w-96 ">
     <img src="./assets/img/image-emily.jpg" class="rounded-full" alt="emily">
-    <h3 class="text-white">Emily from XYZ</h3>
-    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
+    <h3 class="text-white font-bold p-5">Emily from XYZ</h3>
+    <p class="text-white text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
 </div>
-<div id="Thomas" class="flex flex-col justify-center items-center">
+<div id="Thomas" class="flex flex-col justify-center items-center w-96 mr-10 ml-10">
     <img src="./assets/img/image-thomas.jpg" class="rounded-full" alt="emily">
-    <h3 class="text-white">Thomas from corporate</h3>
-    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
+    <h3 class="text-white font-bold p-5">Thomas from corporate</h3>
+    <p class="text-white text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
 </div>
-<div id="jennie" class="flex flex-col justify-center items-center">
+<div id="jennie" class="flex flex-col justify-center items-center w-96 ">
     <img src="./assets/img/image-jennie.jpg" class="rounded-full" alt="emily">
-    <h3 class="text-white">Jennie from Nike</h3>
-    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
+    <h3 class="text-white font-bold p-5">Jennie from Nike</h3>
+    <p class="text-white text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, eum exercitationem quas iste doloremque vitae mollitia sint quibusdam placeat deserunt? Ex recusandae provident optio cupiditate tempora vel totam delectus eius!</p>
 </div>
 </section>
 
